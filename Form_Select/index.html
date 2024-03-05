@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Biglietto Treno Form (con SELECT)</title>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                Logo Compagnia Ferroviaria
+            </div>
+        </header>
+        <main>
+            <div>
+                <label for="kilometri">Inserisci qui i Km da percorrere</label>
+                <input name="kilometri" id="kilometri" type="text" placeholder="Km da percorrere">
+            </div>
+            <div>
+                <select name="eta" id="eta">
+                    <option value="">Nessuno</option>
+                    <option value="under18">Minorenne</option>
+                    <option value="over65">Over65</option>
+                </select>
+            </div>
+            <div>
+                <input id="submit" type="submit" placeholder="Invio" />
+            </div>
+        </main>
+
+
+        <script src="./app_new.js"></script>
+    </body>
+</html>
