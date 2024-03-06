@@ -110,26 +110,45 @@ inputSubmit.addEventListener('click', function(){
     let price = (0.21 * kilometri);    //number
 
 
-   
+    // DICHIARO LA VARIABILE discount (così da averla poi globale nelle Funzioni)
+
+    let discount = 'none'
+
+
+    
+    // DICHIARO LA VARIABILE finalPrice COME LA VARIABILE price
+    // (perchè poi all'interno delle Funzioni la svolgo per averla scontata e
+    // usarla nella stampa del biglietto finale per differenziarla dal prezzo del biglietto senza sconto)
+    // per capire cosa intendo andare in GoLive e verificare cosa accade
+
+    let finalPrice = price
+
+
+
 
     // CALCOLO
 
     if(age === 'under18'){           // SE MINORENNE SCONTO 20%  [=== per comparare che il valore 'age' corrisponda al 'value' selezionato]
         discount = '20%' ;       // SCONTO APPLICATO (PER LA STAMPA DEL BIGLIETTO)     
         const priceOff = (price * 0.2) ;                               //number
-        const finalPrice = (price - priceOff) ;                        //number
+        finalPrice = (price - priceOff) ;                        //number
         console.log('Prezzo Sconto 20%: ', finalPrice.toFixed(2)) ;      //number
     } else if (age === 'over65'){   // ALTRIMENTI SE OVER 65 SCONTO 40% 
         discount = '40%' ;      // SCONTO APPLICATO (PER LA STAMPA DEL BIGLIETTO)
         const priceOff = (price * 0.4) ;                               //number
-        const finalPrice = (price - priceOff) ;                        //number
+        finalPrice = (price - priceOff) ;                        //number
         console.log('Prezzo Sconto 40%: ', finalPrice.toFixed(2)) ;      //number
-    } else{                             // ALTRIMENTI PREZZO INTERO 
-        discount = 'none'
-        let priceOff = 0           // SCONTO APPLICATO (PER LA STAMPA DEL BIGLIETTO)                             
-        const finalPrice = (price - priceOff)
-        console.log('Prezzo Intero: ', finalPrice.toFixed(2)) ;               //number
-    }
+    } 
+
+
+    // POSSO OMETTERLA PERCHE' E' UNA CONDIZIONE CHE SI SVOLGE UGUALMENTE
+
+    // else{                             // ALTRIMENTI PREZZO INTERO 
+    //     discount = 'none'
+    //     let priceOff = 0           // SCONTO APPLICATO (PER LA STAMPA DEL BIGLIETTO)                             
+    //     finalPrice = (price - priceOff)
+    //     console.log('Prezzo Intero: ', finalPrice.toFixed(2)) ;               //number
+    // }
 
 
 
@@ -150,11 +169,11 @@ inputSubmit.addEventListener('click', function(){
     <h2 class="ticket_info"> Il Tuo Biglietto </h2>
     <div class="ticket_name_surname"> Nome e Cognome Passeggero: ${name + ' ' + surname} </div>
 
-    <div class="ticket_price> Prezzo del Biglietto: € ${price} </div>
+    <div class="ticket_price"> Prezzo del Biglietto: € ${price} </div>
 
     <div class="ticket_discount"> Sconto Applicato: ${discount} </div>
 
-    <div class="ticket_price> Prezzo Finale: € ${finalPrice} </div>
+    <div class="ticket_price"> Prezzo Finale: € ${finalPrice} </div>
 
     <input id="submit" type="submit" placeholder="Stampa" />
     `
